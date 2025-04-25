@@ -23,11 +23,11 @@ public class Garcia_Jeremy_Clics {
         double isv = costoTotal * 0.16;
         double isvTotal = costoTotal + isv;
         
-        System.out.println("El numero total de clics es: $"+totalDeClics);
-        System.out.println("El costo total es: $"+ String.format ("%.2f"+costoTotal));
-        System.out.println("El costo promedio es: $"+ String.format ("%.2f"+costoPromedio));
-        System.out.println("El ISV es de: $"+ String.format ("%.2f"+isv));
-        System.out.println("El costo Total con ISV es de: $"+ String.format ("%.2f"+isvTotal));
+        System.out.println("El numero total de clics es: "+totalDeClics);
+        System.out.println("El costo total es: $"+ String.format ("%.2f",costoTotal));
+        System.out.println("El costo promedio es: $"+ String.format ("%.2f",costoPromedio));
+        System.out.println("El ISV es de: $"+ String.format ("%.2f",isv));
+        System.out.println("El costo Total con ISV es de: $"+ String.format ("%.2f",isvTotal));
         
         scanner.close();
 }
