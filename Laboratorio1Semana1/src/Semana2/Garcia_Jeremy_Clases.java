@@ -46,7 +46,7 @@ public class Garcia_Jeremy_Clases {
                 int reprobados = scanner.nextInt();
                 int total = aprobados + reprobados;
                 if (total > 0) {
-                    double porcentajeApr = (aprobados * 100.0) / total;
+                    double porcentajeApr = (aprobados * 100) / total;
                     System.out.println("Porcentaje de aprobados: " + String.format("%.2f", porcentajeApr) + "%");
                 } else {
                     System.out.println("No hay datos suficientes para calcular el porcentaje.");
@@ -56,7 +56,7 @@ public class Garcia_Jeremy_Clases {
             }
 
         } else if (diaTexto.equals("jueves")) {
-            System.out.println("Ingrese el porcentaje de asistencia: ");
+            System.out.println("Ingrese el porcentaje de asistencia (sin signo de %): ");
             double asistencia = scanner.nextDouble();
             if (asistencia > 50) {
                 System.out.println("Asistió la mayoría.");
