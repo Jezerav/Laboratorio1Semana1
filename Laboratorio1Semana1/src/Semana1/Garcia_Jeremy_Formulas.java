@@ -66,7 +66,7 @@ public class Garcia_Jeremy_Formulas {
         double valorh = scanner.nextDouble();
         System.out.print("Valor de j: ");
         double valorj = scanner.nextDouble();
-        double total5 = (valora, 2) / (valorb - valorc)) + ((valord - valore) / (valorf - ((valorg * valorh) / valorj)));
+        double total5 = (valora, 2) / (valorb - valorc) + ((valord - valore) / (valorf - ((valorg * valorh) / valorj)));
         System.out.println("El total del ejercicio E es: " + String.format("%.2f", total5));
 
         System.out.println("***EJERCICIO F*****");
@@ -76,7 +76,7 @@ public class Garcia_Jeremy_Formulas {
         double valorn = scanner.nextDouble();
         System.out.print("Valor de p: ");
         double valorp = scanner.nextDouble();
-        double total6 = (m / n) + p;
+        double total6 = (valorm / valorn) + valorp;
         System.out.println("El total del ejercicio F es: " + String.format("%.2f", total6));
 
         System.out.println("***EJERCICIO G*****");
