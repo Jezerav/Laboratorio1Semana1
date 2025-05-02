@@ -91,35 +91,6 @@ public class Garcia_Jeremy_Formulas {
         double resultadoG = valormg + (valorng / (valorpg - valorqg));
         System.out.println("El total del ejercicio F es: " + String.format("%.2f", total7));
 
-        System.out.println("***EJERCICIO G*****");
-        System.out.print("Valor de a: ");
-        double ah = scanner.nextDouble();
-        System.out.print("Valor de b: ");
-        double bh = scanner.nextDouble();
-        System.out.print("Valor de c: ");
-        double ch = scanner.nextDouble();
-        System.out.print("Valor de d: ");
-        double dh = scanner.nextDouble();
-        double total8 = (Math.pow(ah, 2) / Math.pow(bh, 2)) + (Math.pow(ch, 2) / Math.pow(dh, 2));
-        System.out.println("Resultado (h): " + String.format("%.2f", total8));
-
-        // Ejercicio i) (m + n/p) / (q - r/s)
-        System.out.println("--- Ejercicio i *****");
-        System.out.print("Valor de m: ");
-        double mi = scanner.nextDouble();
-        System.out.print("Valor de n: ");
-        double ni = scanner.nextDouble();
-        System.out.print("Valor de p: ");
-        double pi = scanner.nextDouble();
-        System.out.print("Valor de q: ");
-        double qi = scanner.nextDouble();
-        System.out.print("Valor de r: ");
-        double ri = scanner.nextDouble();
-        System.out.print("Valor de s: ");
-        double si = scanner.nextDouble();
-        double resultadoI = (mi + (ni / pi)) / (qi - (ri / si));
-        System.out.println("Resultado (i): " + String.format("%.2f", resultadoI));
-
 
         scanner.close();
 }
