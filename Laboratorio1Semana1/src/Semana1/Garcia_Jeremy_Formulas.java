@@ -104,7 +104,7 @@ public class Garcia_Jeremy_Formulas {
         System.out.println("Resultado (h): " + String.format("%.2f", total8));
 
         // Ejercicio i) (m + n/p) / (q - r/s)
-        System.out.println("--- Ejercicio (i) ---");
+        System.out.println("--- Ejercicio i *****");
         System.out.print("Valor de m: ");
         double mi = scanner.nextDouble();
         System.out.print("Valor de n: ");
