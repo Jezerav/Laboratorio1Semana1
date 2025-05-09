@@ -10,9 +10,10 @@ import java.util.Random;
 public class Garcia_Jeremy_Estructura {
     public static void main(String[] args) {
         Scanner lea = new Scanner(System.in);
+        Random random = new Random();
         lea.useDelimiter("\n");
         
-                int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0;
+        int opcion1 = 0, opcion2 = 0, opcion3 = 0, opcion4 = 0;
         int opcion;
 
         do {
@@ -114,8 +115,25 @@ public class Garcia_Jeremy_Estructura {
 
                 case 3:
                     opcion3++;
-                    System.out.print("Ingrese un número: ");
+                    int numeroRandom = random.nextInt(100) + 1;
+                    int cantidadDivisores = 0;
+                    String divisores = "";
                     
+                    System.out.println("Número generado: " + numeroRandom);
+                    for (int contador = 1; contador <= numeroRandom; contador++) {
+                        if (numeroRandom % contador == 0) {
+                            cantidadDivisores++;
+                            divisores += contador + " ";
+                        }
+                    }
+                    
+                    if (cantidadDivisores == 2) {
+                        System.out.println("Primo " + numeroRandom + " porque solo tiene dos divisores.");
+                    } else {
+                        System.out.println(numeroRandom + " NO es primo porque tiene " + cantidadDivisores + " divisores.");
+                    }
+
+                    System.out.println("Divisores de " + numeroRandom + " son: " + divisores);
                     break;
 
                 case 4:
