@@ -230,7 +230,7 @@ public class Garcia_Jeremy_Estructura {
 
                 case 5:
                     // Si elige salir, muestra cuántas veces se usaron las opciones
-                    System.out.println("Veces que se usó cada opción:");
+                    System.out.println("\nVeces que se usó cada opción:");
                     System.out.println("1. Palabra Alrevés: " + opcion1);
                     System.out.println("2. Número perfecto: " + opcion2);
                     System.out.println("3. Primos: " + opcion3);
