@@ -16,7 +16,7 @@ public class Garcia_Jeremy_Exam1 {
         int opcion;
         
         do {
-            System.out.println("Menu:");
+            System.out.println("<----------------------    MENU PRINCIPAL    ---------------------->");
             System.out.println("1. Piramide");
             System.out.println("2. Clave");
             System.out.println("3. Juego de Piedra Papel o Tijera");
@@ -45,7 +45,71 @@ public class Garcia_Jeremy_Exam1 {
                     break;
                     
                 case 2:
+                    
+                    int opcionEncrip;
+                    do {
+                    System.out.println("\n<----------------------    MENÚ CIFRAR Y DESCIFRAR   ---------------------->");
+                    System.out.println("1. Cifrar");
+                    System.out.println("2. Descifrar");
+                    System.out.println("3. Salir");
+                    System.out.print("Ingrese opcion: ");
+                    opcionEncrip = lea.nextInt();
+
+                    switch (opcionEncrip) {
+
+                        case 1:
+                            System.out.println ("Ingrese el texto a cifrar: ");
+                            String textoCi = lea.next();
+
+                            String cifrado = "";
+
+                            for (int contaC2 = 0; contaC2 < textoCi.length(); contaC2++) {
+                                char letra = textoCi.charAt(contaC2);
+
+                                // Letras minúsculas
+                                if (letra >= 'a' && letra <= 'z') {
+                                    letra = (char) ('z' - (letra - 'a'));
+                                }
+                                // Letras mayúsculas
+                                else if (letra >= 'A' && letra <= 'Z') {
+                                    letra = (char) ('Z' - (letra - 'A'));
+                                }
+
+                                // Otros caracteres no se modifican
+                                cifrado += letra;
+                            }
+
+                            System.out.println("Mensaje cifrado: " + cifrado);
+                            break;
                             
+                        case 2:
+                            System.out.print("Ingresa el mensaje a descifrar: ");
+                            String textoDes = lea.next();
+                            String descifrado = "";
+
+                            for (int i = 0; i < textoDes.length(); i++) {
+                                char c = textoDes.charAt(i);
+
+                                if (c >= 'a' && c <= 'z') {
+                                    c = (char) ('z' - (c - 'a'));
+                                } else if (c >= 'A' && c <= 'Z') {
+                                    c = (char) ('Z' - (c - 'A'));
+                                }
+
+                                descifrado += c;
+                            }
+
+                            System.out.println("Texto descifrado: " + descifrado);
+                            break;
+                            
+                        case 3: // Salir
+                            System.out.println("\nOpcion Cifrado/Descifrado finalizado.");
+                            
+                        default:
+                            System.out.println("Opción inválida."); // Si la opción no es válida
+                        }
+                    } while (opcionEncrip!=5);
+                            break;
                 case 3:
                     
                     
