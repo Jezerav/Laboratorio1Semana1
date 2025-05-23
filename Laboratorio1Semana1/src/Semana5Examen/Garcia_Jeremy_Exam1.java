@@ -16,7 +16,7 @@ public class Garcia_Jeremy_Exam1 {
         int opcion;
         
         do {
-            System.out.println("<----------------------    MENU PRINCIPAL    ---------------------->");
+            System.out.println("\n<----------------------    MENU PRINCIPAL    ---------------------->");
             System.out.println("1. Piramide");
             System.out.println("2. Clave");
             System.out.println("3. Juego de Piedra Papel o Tijera");
@@ -25,10 +25,10 @@ public class Garcia_Jeremy_Exam1 {
             System.out.print("Seleccione una opcion: ");
             opcion = lea.nextInt(); // Lee la opción seleccionada por el usuario
 
-            // Según la opción seleccionada, ejecutamos el bloque correspondiente
             switch (opcion) {
                 case 1:
-                    System.out.println ("Cantidad de la fila de la piramide: ");
+                    System.out.println("\n<----------------------    PIRAMIDE   ---------------------->");
+                    System.out.print("Cantidad de la fila de la piramide: ");
                     int filas = lea.nextInt();
 
                     int impar = 1;
@@ -48,7 +48,7 @@ public class Garcia_Jeremy_Exam1 {
                     
                     int opcionEncrip;
                     do {
-                    System.out.println("\n<----------------------    MENÚ CIFRAR Y DESCIFRAR   ---------------------->");
+                    System.out.println("\n<----------------------    MENU CIFRAR Y DESCIFRAR   ---------------------->");
                     System.out.println("1. Cifrar");
                     System.out.println("2. Descifrar");
                     System.out.println("3. Salir");
@@ -63,20 +63,20 @@ public class Garcia_Jeremy_Exam1 {
 
                             String cifrado = "";
 
-                            for (int contaC2 = 0; contaC2 < textoCi.length(); contaC2++) {
-                                char letra = textoCi.charAt(contaC2);
+                            for (int contaCi = 0; contaCi < textoCi.length(); contaCi++) {
+                                char letraCi = textoCi.charAt(contaCi);
 
                                 // Letras minúsculas
-                                if (letra >= 'a' && letra <= 'z') {
-                                    letra = (char) ('z' - (letra - 'a'));
+                                if (letraCi >= 'a' && letraCi <= 'z') {
+                                    letraCi = (char) ('z' - (letraCi - 'a'));
                                 }
                                 // Letras mayúsculas
-                                else if (letra >= 'A' && letra <= 'Z') {
-                                    letra = (char) ('Z' - (letra - 'A'));
+                                else if (letraCi >= 'A' && letraCi <= 'Z') {
+                                    letraCi = (char) ('Z' - (letraCi - 'A'));
                                 }
 
                                 // Otros caracteres no se modifican
-                                cifrado += letra;
+                                cifrado += letraCi;
                             }
 
                             System.out.println("Mensaje cifrado: " + cifrado);
@@ -87,16 +87,16 @@ public class Garcia_Jeremy_Exam1 {
                             String textoDes = lea.next();
                             String descifrado = "";
 
-                            for (int i = 0; i < textoDes.length(); i++) {
-                                char c = textoDes.charAt(i);
+                            for (int contaDes = 0; contaDes < textoDes.length(); contaDes++) {
+                                char letraDes = textoDes.charAt(contaDes);
 
-                                if (c >= 'a' && c <= 'z') {
-                                    c = (char) ('z' - (c - 'a'));
-                                } else if (c >= 'A' && c <= 'Z') {
-                                    c = (char) ('Z' - (c - 'A'));
+                                if (letraDes >= 'a' && letraDes <= 'z') {
+                                    letraDes = (char) ('z' - (letraDes - 'a'));
+                                } else if (letraDes >= 'A' && letraDes <= 'Z') {
+                                    letraDes = (char) ('Z' - (letraDes - 'A'));
                                 }
 
-                                descifrado += c;
+                                descifrado += letraDes;
                             }
 
                             System.out.println("Texto descifrado: " + descifrado);
@@ -106,24 +106,75 @@ public class Garcia_Jeremy_Exam1 {
                             System.out.println("\nOpcion Cifrado/Descifrado finalizado.");
                             
                         default:
-                            System.out.println("Opción inválida."); // Si la opción no es válida
+                            System.out.println("Opción invalida.");
                         }
-                    } while (opcionEncrip!=5);
-                            break;
-                case 3:
+                    } while (opcionEncrip!=3);
+                    break;
                     
+                case 3:
+                    System.out.println("\n<----------------------    PIEDRA, PAPEL O TIJERA   ---------------------->");
+                    System.out.println ("              BIENVENIDO RETADOR/A AL JUEGO, PAPEL O TIJERA >:D");
+                    
+                    String usuario = "";
+                    String computadora = "";
+                    String respuesta = "";
+
+                    do {
+                        boolean entradaValida = false;
+
+                        while (!entradaValida) {
+                            System.out.print("\nEscribe piedra, papel o tijera: ");
+                            usuario = lea.next().toLowerCase();
+
+                            if (usuario.equals("piedra") || usuario.equals("papel") || usuario.equals("tijera")) {
+                                entradaValida = true;
+                            } else {
+                                System.out.println("Error. Escribe literalmente unas de las opciones (piedra, papel o tijera). Intenta de nuevo");
+                            }
+                        }
+
+                        int aleatorio = random.nextInt(3);
+                        if (aleatorio == 0) {
+                            computadora = "piedra";
+                        } else if (aleatorio == 1) {
+                            computadora = "papel";
+                        } else {
+                            computadora = "tijera";
+                        }
+
+                        System.out.println("Computadora eligio: " + computadora);
+
+                        if (usuario.equals(computadora)) {
+                            System.out.println("ES UN EMPATE :0!");
+                        } else if (
+                            (usuario.equals("piedra") && computadora.equals("tijera")) ||
+                            (usuario.equals("papel") && computadora.equals("piedra")) ||
+                            (usuario.equals("tijera") && computadora.equals("papel"))
+                        ) {
+                            System.out.println("GANASTE LA RONDA :D!");
+                        } else {
+                            System.out.println("La computadora gano la ronda :c.");
+                        }
+
+                        System.out.print("¿Quieres retarme de nuevo? (si/no): ");
+                        respuesta = lea.next().toLowerCase();
+
+                    } while (respuesta.equals("si"));
+
+                    System.out.println("GRACIAS POR JUGAR. Retame cuando quieras :)");
                     
                     break;        
                 case 4:
                     
+                    
                     break;
                     
                 case 5:
-                    
+                    System.out.println("\n<----------------------    PROGRAMA FINALIZADO   ---------------------->");
                     break;
             default:
-                    System.out.println("Opción inválida."); // Si la opción no es válida
+                    System.out.println("Opción inválida (No salgas del rango 1-4, y 5 para finalizar."); 
             }
-        } while (opcion != 5); // Repite el menú hasta que el usuario elija salir (opción 5)
+        } while (opcion != 5); 
     }
 }
