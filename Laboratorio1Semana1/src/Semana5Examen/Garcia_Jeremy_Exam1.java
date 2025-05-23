@@ -28,9 +28,17 @@ public class Garcia_Jeremy_Exam1 {
             switch (opcion) {
                 case 1:
                     System.out.println("\n<----------------------    PIRAMIDE   ---------------------->");
-                    System.out.print("Cantidad de la fila de la piramide: ");
-                    int filas = lea.nextInt();
+                    int filas=0;
+                    do {
+                        System.out.print("\nCantidad de la fila de la piramide: ");
+                        filas = lea.nextInt();
 
+                        if (filas < 0) {
+                            System.out.println("Error. Ingresa un numero positivo.");
+                        }
+
+                    } while (filas < 0);
+                    
                     int impar = 1;
 
                     for (int conta = 1; conta <= filas; conta++) {
@@ -38,9 +46,9 @@ public class Garcia_Jeremy_Exam1 {
                         for (int conta2 = 1; conta2 <= conta; conta2++) {
                             System.out.print(impar + " ");
                             suma += impar;
-                            impar += 2; // Siguiente número impar
+                            impar += 2; 
                         }
-                    System.out.println("= " + suma); // Muestra la suma (cubo del número de fila)
+                    System.out.println("= " + suma); 
                     }
                     break;
                     
@@ -102,11 +110,12 @@ public class Garcia_Jeremy_Exam1 {
                             System.out.println("Texto descifrado: " + descifrado);
                             break;
                             
-                        case 3: // Salir
-                            System.out.println("\nOpcion Cifrado/Descifrado finalizado.");
+                        case 3: 
+                            System.out.println("Opcion Cifrado/Descifrado finalizado.");
+                            break;
                             
                         default:
-                            System.out.println("Opción invalida.");
+                            System.out.println("Opcion invalida.");
                         }
                     } while (opcionEncrip!=3);
                     break;
@@ -145,7 +154,7 @@ public class Garcia_Jeremy_Exam1 {
                         System.out.println("Computadora eligio: " + computadora);
 
                         if (usuario.equals(computadora)) {
-                            System.out.println("ES UN EMPATE :0!");
+                            System.out.println("ES UN EMPATE :o");
                         } else if (
                             (usuario.equals("piedra") && computadora.equals("tijera")) ||
                             (usuario.equals("papel") && computadora.equals("piedra")) ||
@@ -156,7 +165,7 @@ public class Garcia_Jeremy_Exam1 {
                             System.out.println("La computadora gano la ronda :c.");
                         }
 
-                        System.out.print("¿Quieres retarme de nuevo? (si/no): ");
+                        System.out.print("Quieres retarme de nuevo >:)? (si/no): ");
                         respuesta = lea.next().toLowerCase();
 
                     } while (respuesta.equals("si"));
@@ -165,13 +174,48 @@ public class Garcia_Jeremy_Exam1 {
                     
                     break;        
                 case 4:
+                    System.out.println("\n<------------------- ADIVINA EL NUMERO ------------------->");
+                    System.out.println("               ADIVINA UN NUMERO ENTRE 1 Y 100");
+                    System.out.println("             (Tienes 10 intentos para adivinarlo)");
                     
+                    int numSecreto = random.nextInt(100) + 1;
+                    int intentos = 0;
+                    int intentosMax = 10;
+                    int numUsuario = 0;
+                    boolean adivinado = false;
+
+                    while (intentos < intentosMax && !adivinado) {
+                        System.out.print("\nIngresa tu numero: ");
+                        numUsuario = lea.nextInt();
+                        intentos++;
+                        if (numUsuario < 1 || numUsuario > 100) {
+                            System.out.println("Numero fuera del rango (1-100). Perdiste un intento.");
+                        } else if (numUsuario < numSecreto) {
+                            System.out.println("El numero es MAYOR.");
+                        } else if (numUsuario > numSecreto) {
+                            System.out.println("El numero es MENOR.");
+                        } else {
+                            adivinado = true;
+                            System.out.println("FELICIDADESSSS");
+                            System.out.println("Adivinaste el numero en " + intentos + " intento(s).");
+                            break;
+                        }
+                        if (!adivinado) {
+                            System.out.println("Intentos restantes: " + (intentosMax - intentos));
+                        }
+                    }
+
+                    if (!adivinado) {
+                        System.out.println("\nSe te acabaron los intentos, ni modo :c.");
+                        System.out.println("El numero secreto era: " + numSecreto);
+                    }
                     
                     break;
                     
                 case 5:
                     System.out.println("\n<----------------------    PROGRAMA FINALIZADO   ---------------------->");
                     break;
+                    
             default:
                     System.out.println("Opción inválida (No salgas del rango 1-4, y 5 para finalizar."); 
             }
