@@ -23,10 +23,14 @@ public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
         actualizarListaPalabras();
         setLocationRelativeTo(null);
     }
+
+    Garcia_Jeremy_CambiarPalabras() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
     
     private void actualizarLabelNumeroPalabra() {
         jLabel2.setText("Ingrese la palabra # " + (palabraIndex + 1) + " :");
-        jTextField1.setText(palabras[palabraIndex]); // Mostrar la palabra actual
+        jTextField1.setText(palabras[palabraIndex]); 
     }
 
     private void actualizarListaPalabras() {
