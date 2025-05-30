@@ -4,17 +4,37 @@
  */
 package Semana6;
 
-/**
- *
- * @author jerem
- */
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
+
 public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Garcia_Jeremy_CambiarP
-     */
-    public Garcia_Jeremy_CambiarPalabras() {
+    private String[] palabras;
+    private int palabraIndex = 0;
+    private DefaultListModel<String> listaPalabrasModelo;
+    private Garcia_Jeremy_Menu menuPrincipal;
+    
+    public Garcia_Jeremy_CambiarPalabras(String[] palabras, Garcia_Jeremy_Menu menu) {
+        this.palabras = palabras;
+        this.menuPrincipal = menu;
+        listaPalabrasModelo = new DefaultListModel<>();
         initComponents();
+        actualizarLabelNumeroPalabra();
+        actualizarListaPalabras();
+        setLocationRelativeTo(null);
+    }
+    
+    private void actualizarLabelNumeroPalabra() {
+        jLabel2.setText("Ingrese la palabra # " + (palabraIndex + 1) + " :");
+        jTextField1.setText(palabras[palabraIndex]); // Mostrar la palabra actual
+    }
+
+    private void actualizarListaPalabras() {
+        listaPalabrasModelo.clear();
+        for (String palabra : palabras) {
+            listaPalabrasModelo.addElement(palabra);
+        }
+        jList1.setModel(listaPalabrasModelo);
     }
 
     /**
@@ -32,11 +52,14 @@ public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         BotonAceptarCambio = new javax.swing.JButton();
         BotonOmitirCambio = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        BotonMostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(204, 255, 0));
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CAMBIAR PALABRAS");
 
@@ -62,41 +85,71 @@ public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
             }
         });
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        BotonMostrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        BotonMostrar.setText("MOSTRAR");
+        BotonMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonMostrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addContainerGap()
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(136, 136, 136))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(59, 59, 59)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
                         .addComponent(BotonOmitirCambio)
                         .addGap(18, 18, 18)
-                        .addComponent(BotonAceptarCambio)
-                        .addGap(124, 124, 124))))
+                        .addComponent(BotonAceptarCambio))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(BotonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(134, 134, 134))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonAceptarCambio)
-                    .addComponent(BotonOmitirCambio))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonOmitirCambio)
+                            .addComponent(BotonAceptarCambio))
+                        .addGap(34, 34, 34)
+                        .addComponent(BotonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,22 +167,47 @@ public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonAceptarCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAceptarCambioActionPerformed
-        // TODO add your handling code here:
+        String nuevaPalabra = jTextField1.getText().trim().toUpperCase();
+        if (!nuevaPalabra.isEmpty()) {
+            palabras[palabraIndex] = nuevaPalabra;
+            actualizarListaPalabras(); // Actualizar la lista después de cambiar
+        }
+
+        if (palabraIndex < palabras.length - 1) {
+            palabraIndex++;
+            actualizarLabelNumeroPalabra();
+            jTextField1.setText(palabras[palabraIndex]); // Mostrar la siguiente palabra
+        } else {
+            JOptionPane.showMessageDialog(this, "Se han cambiado todas las palabras.");
+            this.dispose();
+            if (menuPrincipal != null) {
+                menuPrincipal.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_BotonAceptarCambioActionPerformed
 
     private void BotonOmitirCambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonOmitirCambioActionPerformed
-        // TODO add your handling code here:
+        if (palabraIndex < palabras.length - 1) {
+            palabraIndex++;
+            actualizarLabelNumeroPalabra();
+            jTextField1.setText(palabras[palabraIndex]); // Mostrar la siguiente palabra
+        } else {
+            JOptionPane.showMessageDialog(this, "Se han revisado todas las palabras.");
+            this.dispose();
+            if (menuPrincipal != null) {
+                menuPrincipal.setVisible(true);
+            }
+        }
     }//GEN-LAST:event_BotonOmitirCambioActionPerformed
+
+    private void BotonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonMostrarActionPerformed
+        actualizarListaPalabras(); 
+    }//GEN-LAST:event_BotonMostrarActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -152,17 +230,20 @@ public class Garcia_Jeremy_CambiarPalabras extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Garcia_Jeremy_CambiarPalabras().setVisible(true);
+                new Garcia_Jeremy_CambiarPalabras(new String[]{"PALABRA1", "PALABRA2", "PALABRA3", "PALABRA4", "PALABRA5", "PALABRA6", "PALABRA7", "PALABRA8", "PALABRA9", "PALABRA10"}, null).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAceptarCambio;
+    private javax.swing.JButton BotonMostrar;
     private javax.swing.JButton BotonOmitirCambio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

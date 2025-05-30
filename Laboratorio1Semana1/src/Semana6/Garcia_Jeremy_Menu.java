@@ -11,7 +11,7 @@ public class Garcia_Jeremy_Menu extends javax.swing.JFrame {
     public static String[] palabras = {
     };
     
-    private Garcia_Jeremy_Ahorcados juegoFrame; // Esta línea es la que debes añadir
+    private Garcia_Jeremy_Ahorcados juegoFrame;
     private Garcia_Jeremy_CambiarPalabras cambiarPalabrasFrame;
     
     public Garcia_Jeremy_Menu() {
@@ -106,7 +106,7 @@ public class Garcia_Jeremy_Menu extends javax.swing.JFrame {
     private void BotonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonJugarActionPerformed
         this.setVisible(false);
         if (juegoFrame == null || !juegoFrame.isVisible()) {
-            juegoFrame = new Garcia_Jeremy_Ahorcados(this, palabras); // Pasar 'this' (el menú)
+            juegoFrame = new Garcia_Jeremy_Ahorcados(this, palabras); 
         }
         juegoFrame.setVisible(true);
         juegoFrame.iniciarJuego(); 
